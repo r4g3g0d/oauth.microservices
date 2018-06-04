@@ -8,7 +8,7 @@ import com.example.edgeservice.domain.Beer;
 
 @FeignClient("beer-catalog-service")
 public interface BeerClient {
-	 @GetMapping("/beers")
+	 @GetMapping("/beer-list")
 	 Resources<Beer> readBeers();
 	 
 //	 @GetMapping("/test")

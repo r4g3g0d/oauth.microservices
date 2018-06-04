@@ -17,7 +17,7 @@ public class TestController {
 	@Autowired
 	private BeerRepository beerRepo;
 	
-	@GetMapping("/test")
+	@GetMapping("/beer-list")
 	public Resources<Beer> getBieer() {
 		ArrayList<Beer> list = (ArrayList<Beer>) beerRepo.findAll();
 		System.out.println(list.toString());

@@ -16,19 +16,26 @@ export class BeerListComponent implements OnInit {
               private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit() {
+
+
     this.beerService.getAll().subscribe(
       data => {
+        console.log(data);
         this.beers = data;
         for (const beer of this.beers) {
           this.giphyService.get(beer.name).subscribe(url => {
             beer.giphyUrl = url;
             //Need investigation
+
             this.changeDetectorRef.detectChanges();
+
           });
         }
       },
       error => console.log(error)
     )
+
+
   }
 }
 

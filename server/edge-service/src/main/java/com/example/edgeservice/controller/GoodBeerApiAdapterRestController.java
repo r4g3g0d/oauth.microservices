@@ -15,6 +15,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 public class GoodBeerApiAdapterRestController {
+	
 	@Autowired
 	private BeerClient beerClient;
 
@@ -27,10 +28,11 @@ public class GoodBeerApiAdapterRestController {
 		return new ArrayList<>();
 	}
 	
-	@HystrixCommand(fallbackMethod="fallback")
+	//@HystrixCommand(fallbackMethod="fallback")
 	@GetMapping("/good-beers")
 	@CrossOrigin(origins="http://localhost:4200")
 	public Collection<Beer> goodBeers() {
+		System.out.println("--?aici?INTRA");
 		System.out.println("[good-beers]" + beerClient.readBeers());
 		return beerClient.readBeers()
 				.getContent()
@@ -45,12 +47,5 @@ public class GoodBeerApiAdapterRestController {
 	           !beer.getName().equals("Coors Light") &&
 	           !beer.getName().equals("PBR");
 	    }
-	/*	@CrossOrigin(origins="*")
-		@HystrixCommand(fallbackMethod="fallback")
-	    @GetMapping("/test-beers")
-	    private Collection<Beer> testBeers() { 
-			System.out.println(beerClient.readTest());
-	    	return beerClient.readTest().getContent()
-	                .stream().collect(Collectors.toList());
-	    }*/
+	
 }

@@ -12,18 +12,24 @@ import lombok.NoArgsConstructor;
 
 
 
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Entity
 public class Beer {
 	
-	public Beer(String name) {
-	      this.name = name;
-	    }
-
+	
 	@Id
     @GeneratedValue
     private Long id;
+	private String name;
+
+	public Beer(String name) {
+	      this.name = name;
+	    }
+	
+	public Beer() {
+		super();
+	}
 
 	public Long getId() {
 		return id;
@@ -46,7 +52,13 @@ public class Beer {
 		return "Beer [id=" + id + ", name=" + name + "]";
 	}
 
-	private String name;
+	public Beer(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	
 	
 	
 

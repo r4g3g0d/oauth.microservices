@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
         this.user = this.getUser(token);
         this.changeDetectorRef.detectChanges();
       } else {
+        console.log("intri aici?");
         this.showLogin();
       }
     });

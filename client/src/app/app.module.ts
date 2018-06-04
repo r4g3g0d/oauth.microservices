@@ -7,7 +7,7 @@ import { OktaService} from './services/okta.service';
 import { BeerListComponent } from './components/beer-list/beer-list.component';
 import { BeerService } from './services/beer-list.service';
 import { GiphyService } from './services/giphy.service';
-
+import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule, MatListModule, MatToolbarModule } from '@angular/material';
 
 
@@ -19,6 +19,7 @@ import { MatButtonModule, MatListModule, MatToolbarModule } from '@angular/mater
   imports: [
     BrowserModule,
     MatButtonModule,
+    HttpClientModule,
     MatListModule,
     MatToolbarModule
   ],
